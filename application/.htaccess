@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+RewriteCond %{HTTP_HOST} localhost$ [NC]
+RewriteCond %{HTTP_HOST} !folder1
+RewriteRule ^(.*)$ http://localhost/folder1/$1 [R=301,L]
+</IfModule>

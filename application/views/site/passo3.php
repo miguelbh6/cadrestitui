@@ -1,0 +1,79 @@
+<!--   <br><br><br><br><br> -->
+<div class="row">
+	<div class="title col-12 mb-5">
+		<h4> <?php
+				echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto clique no botão Prosseguir';
+				?>: </h4>
+	</div>
+</div>
+<div class="row mb-5">
+	<div class="col-12">
+		<table class="table">
+			<thead>
+				<tr>
+					<th style="text-align:center" scope="col">Grupo</th>
+					<th style="text-align:center" scope="col">Cota</th>
+					<th style="text-align:center" scope="col">Situação</th>
+					<th style="text-align:center" scope="col">Valor a restituir</th>
+					<th style="text-align:center" scope="col">Percentual a restituir</th>
+					<th style="text-align:center" scope="col">Pagamento</th>
+				</tr>
+			</thead>
+			<?php foreach ($planilhas as $it) :        ?>
+				<tr>
+					<td align="center"><?php echo $it->grupo ?></td>
+					<td align="center"><?php echo $it->cota ?></td>
+					<td align="center"><?php echo $it->situacao ?></td>
+					<td align="center"><?php echo 'R$ ' . $it->valor_restituir ?></td>
+					<td align="center"><?php echo $it->percentual_restituir . ' %' ?></td>
+					<td align="center"><?php echo 'R$ ' . $it->pagto ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+	</div>
+</div>
+<div class="row text-center mb-5">
+	<div class="col-12">
+		<h1>
+			<?php echo 'Valor total é ' . (isset($valrest) ? $valrest : ''); ?></h1>
+	</div>
+</div>
+<div class="row text-center mb-3">
+	<div class="col-12">
+		<p>Caso não concorde com o valor, entre em contato através do e-mail <a href="mailto:consorcio@cndn.com.br" target="_blank">consorcio@cndn.com.br</a></p>
+	</div>
+</div>
+<div class="row text-center mb-5">
+	<div class="col-12">
+		<input type="checkbox" class="form-check-input" id="aceite">
+		<label class="form-check-label" for="exampleCheck1">Li e aceito os termos e condições. </label>
+	</div>
+</div>
+<div class="row text-center">
+	<div class="col-6">
+		<button type="button" class="btn btn-primary" onclick="window.location='<?php echo base_url('site/passo2') ?>'">
+			<i class="fas fa-backward"></i> Voltar
+		</button>
+	</div>
+	<div class="col-6">
+		<button type="button" id="btn_prosseguir" class="btn btn-primary" onclick="window.location='<?php echo base_url() ?>site/passo4'" disabled>
+			<i class="fas fa-forward"></i> Prosseguir
+		</button>
+	</div>
+</div>
+<br>
+<div class="row text-center">
+	<div class="col-12">
+		<h6>Passo 3 de 4</h6>
+	</div>
+</div>
+<script>
+$('#aceite').change(
+    function(){
+        if (this.checked) {
+            $("#btn_prosseguir").prop("disabled", false);
+        }else{
+			$("#btn_prosseguir").prop("disabled", true);
+		}
+    });
+</script>
