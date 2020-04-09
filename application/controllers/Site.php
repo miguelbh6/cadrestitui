@@ -3,9 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Site extends CI_Controller
 {
-
     private $dados = array();
-
     const BASE_URL = 'site';
     const TEMPLATE = 'fragments/template';
 
@@ -16,10 +14,8 @@ class Site extends CI_Controller
         $this->load->model('pessoabanco_model');
         $this->load->model('planilha_model');
         $this->load->model('banco_model');
-        $this->dados['bancos'] = $this->banco_model->getAll('1', 'asc');
         $this->load->library('curl');
         $this->load->helper('email');
-
         $this->load->library('AppEmail');
         $this->dados['configEmail'] = $this->appemail->get();
     }
@@ -35,18 +31,17 @@ class Site extends CI_Controller
             $cpf = $this->input->post('cpf');
             $cpf = str_replace('.', '', $cpf);
             $cpf = str_replace('-', '', $cpf);
-
             if (!$this->planilha_model->existeCpf($cpf)) {
-                $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
+                 $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
                 redirect($this->index());
-            } elseif ($this->pessoabanco_model->isByCpf($cpf)) {
-                $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
-                redirect($this->index());
-            } else {
-                $this->dados['cpf'] = $cpf;
-                $this->session->set_userdata('cpf', $cpf);
-                redirect(self::BASE_URL . '/passo2');
-            }
+             } elseif ($this->pessoabanco_model->isByCpf($cpf)) {
+                 $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
+                 redirect($this->index());
+             } else {
+                 $this->dados['cpf'] = $cpf;
+                 $this->session->set_userdata('cpf', $cpf);
+                 redirect(self::BASE_URL . '/passo2');
+             }
         } catch (Exception $e) {
             echo 'Exceção capturada: ', $e->getMessage(), "\n";
         }
@@ -76,12 +71,13 @@ class Site extends CI_Controller
 
     public function passo4()
     {
+        $this->dados['bancos'] = $this->banco_model->getAll('id','asc');
         $this->template->load(self::TEMPLATE, self::BASE_URL . '/passo4', $this->dados);
     }
 
     public function passofinal()
     {
-        $this->enviarEmail();
+        //$this->enviarEmail();
         $this->template->load(self::TEMPLATE, self::BASE_URL . '/passofinal');
     }
 

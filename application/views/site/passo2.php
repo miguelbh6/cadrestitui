@@ -61,7 +61,7 @@
 				<input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required maxlength="255">
 			</div>
 			<div class="form-group">
-				<input type="text" name="sigla_estado" id="estado" class="form-control" placeholder="Estado" required maxlength="255">
+				<input type="text" name="uf" id="estado" class="form-control" placeholder="Estado" required maxlength="255">
 			</div>
 			<div class="row">
 				<div class="col-6 mb-3">
