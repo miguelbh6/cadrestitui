@@ -46,7 +46,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 text-justify">
 				<p>O Administrador Judicial da Massa Falida da DN Administradora de Consórcios., cumprindo as atribuições que lhe são conferidas pela Lei de Falências 11.101/05, comunica e solicita aos consorciados, não contemplados, detentores de crédito com direito à restituição nos moldes do artigo 85 da Lei supra citada, que efetuem, neste site, o registro cadastral para fins de recebimento dos créditos a que têm direito.
 					Para os casos especiais, nos quais tenham ocorrido morte ou incapacidade do consorciado, não contemplado, o cadastro se dará, exclusivamente, através do e-mail consorcio@cndn.com.br, onde serão informados dos procedimentos a serem adotados pelos herdeiros ou representantes legais.
 					A restituição homologada pelo Juiz da 2ª Vara Empresarial e de Fazenda Pública, Autos do Processo de n. 0256579-84.2015.8.0433, corresponde a 57,94% do valor total a que tem direito cada consorciado não contemplado. Informamos, ainda e, em complementação, que os consorciados, não contemplados, que efetuaram pagamentos após a data de 21/01/2015 - momento em que restou decretada a Liquidação Extrajudicial -, terão a restituição daqueles valores pagos de forma integral.

@@ -28,11 +28,14 @@ class Site extends CI_Controller
     public function verificarCPF()
     {
         try {
-            $cpf = $this->input->post('cpf');
-            $cpf = str_replace('.', '', $cpf);
-            $cpf = str_replace('-', '', $cpf);
-            if (!$this->planilha_model->existeCpf($cpf)) {
-                 $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
+            $cpf = preg_replace( '/[^0-9]/is', '', $this->input->post('cpf'));
+
+            if(!$this->validaCPF($cpf)){
+                $this->session->set_flashdata('msg-error', 'CPF inválido');
+                redirect($this->index());
+            }
+            else if (!$this->planilha_model->existeCpf($cpf)) {
+                $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
                 redirect($this->index());
              } elseif ($this->pessoabanco_model->isByCpf($cpf)) {
                  $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
@@ -129,5 +132,34 @@ class Site extends CI_Controller
         if (!$this->email->send()) {
             print_r($this->email->print_debugger());
         }
+    }
+
+    function validaCPF($cpf) {
+ 
+        // Extrai somente os números
+        $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+         
+        // Verifica se foi informado todos os digitos corretamente
+        if (strlen($cpf) != 11) {
+            return false;
+        }
+    
+        // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+        if (preg_match('/(\d)\1{10}/', $cpf)) {
+            return false;
+        }
+    
+        // Faz o calculo para validar o CPF
+        for ($t = 9; $t < 11; $t++) {
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf{$c} * (($t + 1) - $c);
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if ($cpf{$c} != $d) {
+                return false;
+            }
+        }
+        return true;
+    
     }
 }
