@@ -37,7 +37,7 @@ class Site extends CI_Controller
             else if (!$this->planilha_model->existeCpf($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
                 redirect($this->index());
-             } elseif ($this->pessoabanco_model->isByCpf($cpf)) {
+             } elseif ($this->pessoabanco_model->existeCpf($cpf)) {
                  $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
                  redirect($this->index());
              } else {

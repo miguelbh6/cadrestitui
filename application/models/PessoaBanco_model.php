@@ -22,7 +22,7 @@ class PessoaBanco_model extends MY_Model
         return $this->db->where('cpf', $id)->get($this->tabela)->row();
     }
     
-    public function isByCpf($id) {
+    public function existeCpf($id) {
         return $this->getByCpf($id);
     }
 }
