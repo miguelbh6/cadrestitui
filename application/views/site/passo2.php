@@ -26,7 +26,7 @@
 </div>
 <div class="row">
 	<div class="col-12">
-		<form id="validation" action="<?php echo base_url(); ?>site/cadastrarPessoa" method="post" accept-charset="utf-8" role="form">
+		<form id="validation" action="<?=base_url(); ?>site/cadastrarPessoa" method="post" accept-charset="utf-8" role="form">
 			<div class="form-group">
 				<input type="text" name="nome" class="form-control" placeholder="Nome" required>
 			</div>
@@ -70,7 +70,7 @@
 						</button></span>
 				</div>
 				<div class="col-6 mb-3">
-					<button type="button" class="btn btn-primary" onclick="window.location='<?php echo base_url('site/passo1') ?>'">
+					<button type="button" class="btn btn-primary" onclick="window.location='<?=base_url('site/passo1') ?>'">
 						<i class="fas fa-backward"></i> Voltar
 					</button>
 				</div>

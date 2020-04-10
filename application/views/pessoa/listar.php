@@ -24,18 +24,18 @@
 					<td><?php echo $it->sobrenome ?></td>
 					<td><?php echo $it->cpf ?></td>
 					<td style="width: 20%;" class="text-center"><a
-						href="<?php echo base_url('pessoa/editar/' . $it->id) ?>"
+						href="<?=base_url('pessoa/editar/' . $it->id) ?>"
 						title="Editar cadastro" class="btn btn-primary"><i
 							class="far fa-edit"></i> Editar</span></a> <a
-						href="#<?php echo $it->id; ?>" title="Apagar"
+						href="#<?=$it->id; ?>" title="Apagar"
 						class="btn btn-danger" data-toggle="modal"
-						data-target="#delete-modal-<?php echo $it->id ?>"><i
+						data-target="#delete-modal-<?=$it->id ?>"><i
 							class="fas fa-trash-alt"></i> Apagar</span></a></td>
 				</tr>
 
 
 				<!-- Modal delete -->
-				<div class="modal fade" id="delete-modal-<?php echo $it->id ?>"
+				<div class="modal fade" id="delete-modal-<?=$it->id ?>"
 					tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -49,7 +49,7 @@
 							<div class="modal-body">Deseja realmente excluir este item?</div>
 							<div class="modal-footer">
 								<a class="btn btn-primary"
-									href="<?php echo base_url('pessoa/remover/'. $it->id)?>">Sim</a>
+									href="<?=base_url('pessoa/remover/'. $it->id)?>">Sim</a>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">N&atilde;o</button>
 							</div>
@@ -64,7 +64,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="pagination">
-					<b>Todal de Registros: <?php echo sizeof($pessoas); ?></b>
+					<b>Todal de Registros: <?=sizeof($pessoas); ?></b>
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 <?php } else{ ?>
 <div class="row">
 	<div class="col-md-12">
-                <?php echo '<p>Não existem registros</p>'; ?>
+                <?php echo '<p>Nï¿½o existem registros</p>'; ?>
             </div>
 </div>
 <?php }?>

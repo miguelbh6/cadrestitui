@@ -7,8 +7,8 @@
 	<div class="row">
 		<div class="col-12">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="<?php echo base_url();?>"> <img
-					src="<?php echo base_url();?>assets/img/favicon.ico" width="30"
+				<a class="navbar-brand" href="<?=base_url();?>"> <img
+					src="<?=base_url();?>assets/img/favicon.ico" width="30"
 					height="30" class="d-inline-block align-top" alt=""> CNDN
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,10 +21,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active"><a class="nav-link"
-							href="<?php echo base_url('pessoa');?>">Pessoas <span
+							href="<?=base_url('pessoa');?>">Pessoas <span
 								class="sr-only">(current)</span></a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="<?php echo base_url('pessoabanco');?>">Dados bancarios</a></li>
+							href="<?=base_url('pessoabanco');?>">Dados bancarios</a></li>
 					</ul>
 				</div>
 				<ul class="navbar-nav">
@@ -32,7 +32,7 @@
 							class="fas fa-user"></i> <?php    echo 'Usuario: ' . $this->session->userdata("username");?>
             </a></li>
 					<li class="nav-item"><a class="btn navbar-btn btn-light"
-						href="<?php    echo base_url('usuario/logout');?>"><i
+						href="<?=base_url('usuario/logout');?>"><i
 							class="fas fa-sign-out-alt"></i> Sair</a></li>
 				</ul>
 			</nav>
@@ -49,7 +49,7 @@
 		<div class="col-12">
 			<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
 				<a class="navbar-brand" href="#"> <img
-					src="<?php echo base_url();?>assets/img/favicon.ico" width="30"
+					src="<?=base_url();?>assets/img/favicon.ico" width="30"
 					height="30" class="d-inline-block align-top" alt=""> CNDN
 				</a>
 			</nav>
