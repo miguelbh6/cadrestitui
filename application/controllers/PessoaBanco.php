@@ -3,9 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pessoabanco extends MY_Controller
 {
-    private $dados = array();
     const BASE_URL = 'pessoabanco';
-    const TEMPLATE = 'fragments/templateAdmin';
 
     public function __construct()
     {
@@ -16,7 +14,8 @@ class Pessoabanco extends MY_Controller
 
     public function index()
     {
-        $this->template->load(self::TEMPLATE, self::BASE_URL . '/listar', $this->dados);
+        $this->checkUserLogin();
+        $this->_viewAdmin(self::BASE_URL . '/listar', $this->dados);
     }
 
     public function remover($id = null)

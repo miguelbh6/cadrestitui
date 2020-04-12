@@ -19,13 +19,11 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <form id="validation" action="<?=base_url(); ?>site/verificarCPF" method="post" accept-charset="utf-8"
+                <form id="validation" action="<?=base_url();?>site/verificarCPF" method="post" accept-charset="utf-8"
                     role="form">
-                    <div class="row">
-                        <div class="col-12 mb-3">
+                    <div class="form-group">
                             <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required
                                 maxlength="20">
-                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Verificar</button>
                 </form>

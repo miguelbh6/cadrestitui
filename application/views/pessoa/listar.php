@@ -3,7 +3,7 @@
         <h3>Pessoas</h3>
     </div>
 </div>
-<?php if(!empty($pessoas)){?>
+<?php if (!empty($pessoas)) {?>
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">
@@ -17,22 +17,22 @@
                     </tr>
                 </thead>
                 <?php
-    foreach ($pessoas as $it) :
-        ?>
+foreach ($pessoas as $it):
+    ?>
                 <tr>
-                    <td><?=$it->nome ?></td>
-                    <td><?=$it->sobrenome ?></td>
-                    <td><?=$it->cpf ?></td>
-                    <td style="width: 20%;" class="text-center"><a href="<?=base_url('pessoa/editar/' . $it->id) ?>"
+                    <td><?=$it->nome?></td>
+                    <td><?=$it->sobrenome?></td>
+                    <td><?=$it->cpf?></td>
+                    <td style="width: 20%;" class="text-center"><a href="<?=base_url('pessoa/editar/' . $it->id)?>"
                             title="Editar cadastro" class="btn btn-primary"><i class="far fa-edit"></i>
-                            Editar</span></a> <a href="#<?=$it->id; ?>" title="Apagar" class="btn btn-danger"
-                            data-toggle="modal" data-target="#delete-modal-<?=$it->id ?>"><i
+                            Editar</span></a> <a href="#<?=$it->id;?>" title="Apagar" class="btn btn-danger"
+                            data-toggle="modal" data-target="#delete-modal-<?=$it->id?>"><i
                                 class="fas fa-trash-alt"></i> Apagar</span></a></td>
                 </tr>
 
 
                 <!-- Modal delete -->
-                <div class="modal fade" id="delete-modal-<?=$it->id ?>" tabindex="-1" role="dialog"
+                <div class="modal fade" id="delete-modal-<?=$it->id?>" tabindex="-1" role="dialog"
                     aria-labelledby="modalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -44,30 +44,30 @@
                             </div>
                             <div class="modal-body">Deseja realmente excluir este item?</div>
                             <div class="modal-footer">
-                                <a class="btn btn-primary" href="<?=base_url('pessoa/remover/'. $it->id)?>">Sim</a>
+                                <a class="btn btn-primary" href="<?=base_url('pessoa/remover/' . $it->id)?>">Sim</a>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <?php endforeach; ?>
+                <?php endforeach;?>
             </table>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="pagination">
-                    <b>Todal de Registros: <?=sizeof($pessoas); ?></b>
+                    <b>Todal de Registros: <?=sizeof($pessoas);?></b>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php } else{ ?>
+<?php } else {?>
 <div class="row">
     <div class="col-md-12">
-        <?='<p>N�o existem registros</p>'; ?>
+        <?='<p>Não existem registros</p>';?>
     </div>
 </div>
 <?php }?>

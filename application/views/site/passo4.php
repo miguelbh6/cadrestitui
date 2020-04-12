@@ -11,9 +11,9 @@
 			<div class="form-group">
 				<label>Banco</label> <select name="banco" class="form-control" required>
 					<option value="" selected>-- Selecione --</option>
-					<?php foreach ($bancos as $i) { ?>
+					<?php foreach ($bancos as $i) {?>
 						<option value="<?php echo $i->id ?>"><?php echo '(' . $i->id . ') - ' . $i->nome; ?></option>
-					<?php                            }                            ?>
+					<?php }?>
 				</select>
 			</div>
 			<div class="form-group">
@@ -23,7 +23,7 @@
 				<input type="text" name="conta" class="form-control" placeholder="Conta" required>
 			</div>
 			<div class="form-group">
-				<span class="input-group-btn"><button type="submit" class="btn btn-primary">Finalizar</button></span>
+				<button type="submit" class="btn btn-primary">Finalizar</button>
 			</div>
 		</form>
 	</div>
