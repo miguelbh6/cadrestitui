@@ -28,23 +28,22 @@ class Site extends CI_Controller
     public function verificarCPF()
     {
         try {
-            $cpf = preg_replace( '/[^0-9]/is', '', $this->input->post('cpf'));
+            $cpf = preg_replace('/[^0-9]/is', '', $this->input->post('cpf'));
 
-            if(!$this->validaCPF($cpf)){
+            if (!$this->validaCPF($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF inválido');
                 redirect($this->index());
-            }
-            else if (!$this->planilha_model->existeCpf($cpf)) {
+            } else if (!$this->planilha_model->existeCpf($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
                 redirect($this->index());
-             } elseif ($this->pessoabanco_model->existeCpf($cpf)) {
-                 $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
-                 redirect($this->index());
-             } else {
-                 $this->dados['cpf'] = $cpf;
-                 $this->session->set_userdata('cpf', $cpf);
-                 redirect(self::BASE_URL . '/passo2');
-             }
+            } elseif ($this->pessoabanco_model->existeCpf($cpf)) {
+                $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
+                redirect($this->index());
+            } else {
+                $this->dados['cpf'] = $cpf;
+                $this->session->set_userdata('cpf', $cpf);
+                redirect(self::BASE_URL . '/passo2');
+            }
         } catch (Exception $e) {
             echo 'Exceção capturada: ', $e->getMessage(), "\n";
         }
@@ -64,7 +63,7 @@ class Site extends CI_Controller
     public function passo3()
     {
         $cpf = $this->session->userdata('cpf');
-        $this->dados['pessoa']  = $this->pessoa_model->getByCpf($cpf);
+        $this->dados['pessoa'] = $this->pessoa_model->getByCpf($cpf);
         $this->dados['planilhas'] = $this->planilha_model->getByCpf($cpf);
         $retorno = $this->planilha_model->obterValorTotalRestituirPorCpf($cpf);
         $this->dados['valrest'] = $retorno->total;
@@ -74,7 +73,7 @@ class Site extends CI_Controller
 
     public function passo4()
     {
-        $this->dados['bancos'] = $this->banco_model->getAll('id','asc');
+        $this->dados['bancos'] = $this->banco_model->getAll('id', 'asc');
         $this->template->load(self::TEMPLATE, self::BASE_URL . '/passo4', $this->dados);
     }
 
@@ -98,13 +97,12 @@ class Site extends CI_Controller
             redirect(self::BASE_URL . '/passo2');
         }
 
-
         $dados = $this->input->post();
         $dados['cpf'] = $this->session->userdata('cpf');
 
         $this->pessoa_model->save($dados['id'], $dados);
 
-        if ($dados['id'] == NULL) {
+        if ($dados['id'] == null) {
             redirect('site/passo3');
         } else {
             redirect(self::BASE_URL);
@@ -120,35 +118,36 @@ class Site extends CI_Controller
         redirect('site/passofinal');
     }
 
-    function enviarEmail()
+    public function enviarEmail()
     {
         $this->email->initialize($this->dados['configEmail']);
         $this->email->from('miguelbh6@gmail.com', 'Administrador');
         $this->email->subject("CNDN - Bem vindo");
         $this->email->reply_to('miguelbh6@gmail.com');
         $this->email->to('miguelbh6@gmail.com');
-        $conteudo_msg = $this->load->view('templates_email/bemvindo', '', TRUE);
+        $conteudo_msg = $this->load->view('templates_email/bemvindo', '', true);
         $this->email->message($conteudo_msg);
         if (!$this->email->send()) {
             print_r($this->email->print_debugger());
         }
     }
 
-    function validaCPF($cpf) {
- 
+    public function validaCPF($cpf)
+    {
+
         // Extrai somente os números
-        $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-         
+        $cpf = preg_replace('/[^0-9]/is', '', $cpf);
+
         // Verifica se foi informado todos os digitos corretamente
         if (strlen($cpf) != 11) {
             return false;
         }
-    
+
         // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
         if (preg_match('/(\d)\1{10}/', $cpf)) {
             return false;
         }
-    
+
         // Faz o calculo para validar o CPF
         for ($t = 9; $t < 11; $t++) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
@@ -160,6 +159,6 @@ class Site extends CI_Controller
             }
         }
         return true;
-    
+
     }
 }
