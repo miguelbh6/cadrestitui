@@ -3,9 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pessoa extends MY_Controller
 {
-    private $dados = array();
     const BASE_URL = 'pessoa';
-    const TEMPLATE = 'fragments/templateAdmin';
 
     public function __construct()
     {
@@ -18,7 +16,8 @@ class Pessoa extends MY_Controller
 
     public function index()
     {
-        $this->template->load(self::TEMPLATE, self::BASE_URL . '/listar', $this->dados);
+        $this->ckeckUserLogged();
+        $this->_viewAdmin(self::BASE_URL . '/listar', $this->dados);
     }
 
     public function remover($id = null)
@@ -33,11 +32,11 @@ class Pessoa extends MY_Controller
         redirect(self::BASE_URL);
     }
 
-    public function editar($id = NULL)
+    public function editar($id = null)
     {
-        if ($id != NULL) {
+        if ($id != null) {
             $this->dados['pessoa'] = $this->pessoa_model->getById($id);
-            $this->template->load(self::TEMPLATE, self::BASE_URL . '/editar', $this->dados);
+            $this->_viewAdmin(self::BASE_URL . '/editar', $this->dados);
         }
     }
 
@@ -58,7 +57,7 @@ class Pessoa extends MY_Controller
 
         $this->pessoa_model->save($dados['id'], $dados);
 
-        if ($dados['id'] == NULL) {
+        if ($dados['id'] == null) {
             redirect('site/passo3');
         } else {
             redirect(self::BASE_URL);
