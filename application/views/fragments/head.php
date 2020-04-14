@@ -1,5 +1,3 @@
-<head>
-<!-- Site made with Mobirise Website Builder v4.8.1, https://mobirise.com -->
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
@@ -25,4 +23,3 @@
 <script src="<?=base_url();?>assets/js/jquery.mask.min.js"></script>
 <script src="<?=base_url();?>assets/js/jquery-ui.min.js"></script>
 <script src="<?=base_url();?>assets/js/bootstrap.min.js"></script>
-</head>
