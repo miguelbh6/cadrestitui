@@ -24,7 +24,7 @@ class Pessoa extends MY_Controller
     {
         $pessoa = $this->pessoa_model->getById($id);
 
-        if (!$this->pessoabanco_model->isByCpf($pessoa->cpf)) {
+        if (!$this->pessoabanco_model->existeCpf($pessoa->cpf)) {
             $this->pessoa_model->delete($id);
         } else {
             $this->session->set_flashdata('msg-error', 'Nao e permitido excluir esta pessoa, pois possui dados bancarios');

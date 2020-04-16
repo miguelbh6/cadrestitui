@@ -67,7 +67,7 @@
 <?php } else{ ?>
 <div class="row">
     <div class="col-md-12">
-        <?='<p>N�o existem registros</p>'; ?>
+        <?='<p>Não existem registros</p>'; ?>
     </div>
 </div>
 <?php }?>
