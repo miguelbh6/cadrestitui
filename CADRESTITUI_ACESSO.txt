@@ -1,0 +1,14 @@
+LOCALWEB
+----------------
+cndn2016
+cndn@super
+
+FTP
+----------------
+cndn3
+Cndn2016@super
+
+BD
+----------------
+cadrestitui
+cadrestitui1
