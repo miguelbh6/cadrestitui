@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pessoabanco extends MY_Controller
 {
+    
     const BASE_URL = 'pessoabanco';
 
     public function __construct()
