@@ -35,7 +35,7 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 <div class="row text-center mb-5">
 	<div class="col-12">
 		<h1>
-			<?='Valor total é R$' . (isset($valrest) ? $valrest : '');?></h1>
+			<?='Valor total é R$ ' . (isset($valrest) ? $valrest : '');?></h1>
 	</div>
 </div>
 <div class="row text-center mb-3">
