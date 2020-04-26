@@ -15,8 +15,8 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 					<th style="text-align:center" scope="col">Cota</th>
 					<th style="text-align:center" scope="col">Situação</th>
 					<th style="text-align:center" scope="col">Valor a restituir</th>
-					<th style="text-align:center" scope="col">Percentual a restituir</th>
-					<th style="text-align:center" scope="col">Pagamento</th>
+					<th style="text-align:center" scope="col">Percentual a restituir 57,94%</th>
+					<th style="text-align:center" scope="col">Pagamento após 21/01/2015</th>
 				</tr>
 			</thead>
 			<?php foreach ($planilhas as $it): ?>
@@ -25,7 +25,7 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 					<td align="center"><?=$it->cota?></td>
 					<td align="center"><?=$it->situacao?></td>
 					<td align="center"><?='R$ ' . $it->valor_restituir?></td>
-					<td align="center"><?=$it->percentual_restituir . ' %'?></td>
+					<td align="center"><?=$it->percentual_restituir?></td>
 					<td align="center"><?='R$ ' . $it->pagto?></td>
 				</tr>
 			<?php endforeach;?>
@@ -36,11 +36,6 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 	<div class="col-12">
 		<h1>
 			<?='Valor total é R$ ' . (isset($valrest) ? $valrest : '');?></h1>
-	</div>
-</div>
-<div class="row text-center mb-3">
-	<div class="col-12">
-		<p>Caso não concorde com o valor, entre em contato através do e-mail <a href="mailto:consorcio@cndn.com.br" target="_blank">consorcio@cndn.com.br</a></p>
 	</div>
 </div>
 <div class="row text-center mb-5">

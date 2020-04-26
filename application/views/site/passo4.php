@@ -20,7 +20,7 @@
 				<input type="text" name="agencia" class="form-control" placeholder="Agência" required maxlength="10">
 			</div>
 			<div class="form-group">
-				<input type="text" name="conta" class="form-control" placeholder="Conta" required>
+				<input type="text" name="conta" class="form-control" placeholder="Conta corrente ou poupança" required>
 			</div>
 			<div class="form-group">
 				<span class="input-group-btn"><button type="submit" class="btn btn-primary">Finalizar</button></span>

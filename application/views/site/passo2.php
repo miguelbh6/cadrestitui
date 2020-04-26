@@ -10,8 +10,8 @@
 					$('#bairro').val(dados.bairro);
 					$('#cidade').val(dados.localidade);
 					$('#estado').val(dados.uf);
-					$('#rua').attr('readonly', true); 
-					$('#bairro').attr('readonly', true); 
+				//	$('#rua').attr('readonly', true); 
+				//	$('#bairro').attr('readonly', true); 
 					$('#cidade').attr('readonly', true); 
 					$('#estado').attr('readonly', true); 
 				}, 'json');
@@ -20,8 +20,7 @@
 </script>
 <div class="row mb-3">
 	<div class="col-12">
-		<h4>
-			Cadastro pessoa</h4>
+		<h4>Dados pessoais</h4>
 	</div>
 </div>
 <div class="row">
@@ -56,6 +55,9 @@
 			</div>
 			<div class="form-group">
 				<input type="text" name="rua" id="rua" class="form-control" placeholder="Rua" required maxlength="255">
+			</div>
+			<div class="form-group">
+				<input type="text" name="numero" id="numero" class="form-control" placeholder="Número" required maxlength="255">
 			</div>
 			<div class="form-group">
 				<input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required maxlength="255">
@@ -109,4 +111,5 @@
 		$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
 	});
 	$('input[name="dtnasc"]').datepicker();
+	$('input[name="numero"]').mask("0#");
 </script>

@@ -23,7 +23,7 @@
                     role="form">
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required
+                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF ou CNPJ" required
                                 maxlength="20">
                         </div>
                     </div>
@@ -39,13 +39,26 @@
             </div>
         </div>
         <script>
-        $('#cpf').mask("000.000.000-00");
+
+        var CpfCnpjMaskBehavior = function (val) {
+			return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+		},
+    cpfCnpjpOptions = {
+    	onKeyPress: function(val, e, field, options) {
+      	field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
+      }
+    };
+
+$(function() {
+	$(':input[name=cpf]').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+})
+       
         </script>
     </div>
     <div class="col-6">
         <div class="row">
             <div class="col-12">
-                <h4>Comunicado de Restituição</h4>
+                <h4>Comunicado de Restituição - Primeiro Lote</h4>
             </div>
         </div>
         <div class="row">

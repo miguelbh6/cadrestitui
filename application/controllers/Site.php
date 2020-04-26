@@ -28,10 +28,14 @@ class Site extends MY_Controller
         try {
             $cpf = preg_replace('/[^0-9]/is', '', $this->input->post('cpf'));
 
+            /*
             if (!$this->validaCpf($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF inválido');
                 redirect($this->index());
-            } else if (!$this->planilha_model->existeCpf($cpf)) {
+            } else 
+            */
+            
+            if (!$this->planilha_model->existeCpf($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
                 redirect($this->index());
             } elseif ($this->pessoabanco_model->existeCpf($cpf)) {
