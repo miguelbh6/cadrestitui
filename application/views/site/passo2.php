@@ -81,7 +81,7 @@
 	</div>
 </div>
 <script>
-	$('input[name="cpf"]').mask("000.000.000-00");
+	//$('input[name="cpf"]').mask("000.000.000-00");
 	$('input[name="dtnasc"]').mask("##/##/####");
 	$('input[name="tel1"]').mask("## #####-####");
 	$('input[name="tel2"]').mask("## #####-####");
@@ -112,4 +112,21 @@
 	});
 	$('input[name="dtnasc"]').datepicker();
 	$('input[name="numero"]').mask("0#");
+
+	
+
+        var CpfCnpjMaskBehavior = function (val) {
+			return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+		},
+    cpfCnpjpOptions = {
+    	onKeyPress: function(val, e, field, options) {
+      	field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
+      }
+    };
+
+$(function() {
+	$(':input[name=cpf]').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+})
+       
+        
 </script>

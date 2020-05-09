@@ -14,7 +14,7 @@
     <div class="col-6">
         <div class="row">
             <div class="col-12">
-                <h4>Verifica CPF a restituir</h4>
+                <h4>Verifica CPF/CNPJ a restituir</h4>
             </div>
         </div>
         <div class="row">

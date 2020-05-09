@@ -36,10 +36,10 @@ class Site extends MY_Controller
             */
             
             if (!$this->planilha_model->existeCpf($cpf)) {
-                $this->session->set_flashdata('msg-error', 'CPF informado não encontrado para restituir');
+                $this->session->set_flashdata('msg-error', 'CPF/CNPJ informado não encontrado para restituir');
                 redirect($this->index());
             } elseif ($this->pessoabanco_model->existeCpf($cpf)) {
-                $this->session->set_flashdata('msg-error', 'CPF informado já consta para restituição');
+                $this->session->set_flashdata('msg-error', 'CPF/CNPJ informado já consta para restituição');
                 redirect($this->index());
             } else {
                 $this->dados['cpf'] = $cpf;
