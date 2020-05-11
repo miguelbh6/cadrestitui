@@ -24,9 +24,9 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 					<td align="center"><?=$it->grupo?></td>
 					<td align="center"><?=$it->cota?></td>
 					<td align="center"><?=$it->situacao?></td>
-					<td align="center"><?='R$ ' . $it->valor_restituir?></td>
+					<td align="center"><?='R$ ' . number_format(trim($it->valor_restituir), 2, ',', '.') ?></td>
 					<td align="center"><?=$it->percentual_restituir?></td>
-					<td align="center"><?='R$ ' . $it->pagto?></td>
+					<td align="center"><?='R$ ' . number_format(trim($it->pagto), 2, ',', '.') ?></td>
 				</tr>
 			<?php endforeach;?>
 		</table>
