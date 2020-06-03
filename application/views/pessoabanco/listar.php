@@ -13,6 +13,7 @@
                         <th scope="col">CPF</th>
                         <th scope="col">Banco</th>
                         <th scope="col">Agencia</th>
+                        <th scope="col">Tipo de conta</th>
                         <th scope="col">Conta</th>
                         <th scope="col">Valor total</th>
                         <th class="text-center" scope="col">Acões</th>
@@ -24,6 +25,7 @@
                 <td><?=$it->cpf ?></td>
                 <td><?=$it->banco ?></td>
                 <td><?=$it->agencia ?></td>
+                <td><?=$it->tpconta == '1' ? 'Corrente' : 'Poupança' ?></td>
                 <td><?=$it->conta ?></td>
                 <td><?=$it->vl_total ?></td>
                 <td style="width: 20%;" class="text-center"> <a href="#<?=$it->id; ?>" title="Apagar"

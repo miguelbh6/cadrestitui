@@ -34,7 +34,7 @@ class Site extends MY_Controller
                 redirect($this->index());
             } else 
             */
-            
+
             if (!$this->planilha_model->existeCpf($cpf)) {
                 $this->session->set_flashdata('msg-error', 'CPF/CNPJ informado não encontrado para restituir');
                 redirect($this->index());
@@ -67,14 +67,16 @@ class Site extends MY_Controller
         $cpf = $this->session->userdata('cpf');
         $this->dados['pessoa'] = $this->pessoa_model->getByCpf($cpf);
         $this->dados['planilhas'] = $this->planilha_model->getByCpf($cpf);
-        $retorno = $this->planilha_model->obterValorTotalRestituirPorCpf($cpf);
-        $this->dados['valrest'] = $retorno->total;
-        $this->session->set_userdata('vl_total', $retorno->total);
+        $this->dados['valrest'] = $this->session->userdata('vl_total');
         $this->_view(self::BASE_URL . '/passo3', $this->dados);
     }
 
     public function passo4()
     {
+        $cpf = $this->session->userdata('cpf');
+        $retorno = $this->planilha_model->obterValorTotalRestituirPorCpf($cpf);
+        $this->dados['valrest'] = $retorno->total;
+        $this->session->set_userdata('vl_total', $retorno->total);
         $this->dados['bancos'] = $this->banco_model->getAll('id', 'asc');
         $this->_view(self::BASE_URL . '/passo4', $this->dados);
     }
@@ -93,30 +95,46 @@ class Site extends MY_Controller
 
     public function cadastrarPessoa()
     {
-        if (!valid_email($this->input->post('email'))) {
-            $this->session->set_flashdata('msg-error', 'E-mail inválido');
-            redirect(self::BASE_URL . '/passo2');
-        }
+        $cpf = $this->session->userdata('cpf');
 
-        $dados = $this->input->post();
-        $dados['cpf'] = $this->session->userdata('cpf');
+        if (!$this->pessoa_model->existeCpf($cpf)) {
 
-        $this->pessoa_model->save($dados['id'], $dados);
+            if (!valid_email($this->input->post('email'))) {
+                $this->session->set_flashdata('msg-error', 'E-mail inválido');
+                redirect(self::BASE_URL . '/passo2');
+            }
 
-        if ($dados['id'] == null) {
-            redirect('site/passo3');
+            $dados = $this->input->post();
+            $dados['cpf'] = $cpf;
+
+            $this->pessoa_model->save($dados['id'], $dados);
+
+            if ($dados['id'] == null) {
+                redirect('site/passo4');
+            } else {
+                redirect(self::BASE_URL);
+            }
         } else {
-            redirect(self::BASE_URL);
+            $this->session->set_flashdata('msg-error', 'Já existe dados pessoais cadastrados para o CPF informado');
+            redirect(self::BASE_URL . '/passo2');
         }
     }
 
     public function cadastrarDadosBancarios()
     {
-        $dados = $this->input->post();
-        $dados['cpf'] = $this->session->userdata('cpf');
-        $dados['vl_total'] = $this->session->userdata('vl_total');
-        $this->pessoabanco_model->save(null, $dados);
-        redirect('site/passofinal');
+        $cpf = $this->session->userdata('cpf');
+
+        if (!$this->pessoabanco_model->existeCpf($cpf)) {
+
+            $dados = $this->input->post();
+            $dados['cpf'] = $cpf;
+            $dados['vl_total'] = $this->session->userdata('vl_total');
+            $this->pessoabanco_model->save(null, $dados);
+            redirect('site/passo3');
+        } else {
+            $this->session->set_flashdata('msg-error', 'Já existe dados bancarios cadastrados para o CPF informado');
+            redirect(self::BASE_URL . '/passo4');
+        }
     }
 
     public function enviarEmail()

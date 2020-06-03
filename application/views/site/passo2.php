@@ -29,9 +29,9 @@
 			<div class="form-group">
 				<input type="text" name="nome" class="form-control" placeholder="Nome" required>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome" required>
-			</div>
+			</div> -->
 			<div class="form-group">
 				<input type="text" name="cpf" class="form-control" placeholder="CPF" required value="<?php echo (isset($cpf) ? $cpf : ''); ?>" readonly>
 			</div>
@@ -66,15 +66,16 @@
 				<input type="text" name="uf" id="estado" class="form-control" placeholder="Estado" required maxlength="255">
 			</div>
 			<div class="row">
-				<div class="col-6 mb-3">
-					<span class="input-group-btn"><button type="submit" class="btn btn-primary">
-							<i class="fas fa-save"></i> Cadastrar
-						</button></span>
-				</div>
+				
 				<div class="col-6 mb-3">
 					<button type="button" class="btn btn-primary" onclick="window.location='<?=base_url('site/passo1') ?>'">
 						<i class="fas fa-backward"></i> Voltar
 					</button>
+				</div>
+				<div class="col-6 mb-3">
+					<span class="input-group-btn"><button type="submit" class="btn btn-primary">
+							<i class="fas fa-save"></i> Cadastrar
+						</button></span>
 				</div>
 			</div>
 		</form>

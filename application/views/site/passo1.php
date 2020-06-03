@@ -72,7 +72,7 @@ $(function() {
                     contemplado, o cadastro se dará, exclusivamente, através do e-mail consorcio@cndn.com.br, onde serão
                     informados dos procedimentos a serem adotados pelos herdeiros ou representantes legais.
                     A restituição homologada pelo Juiz da 2ª Vara Empresarial e de Fazenda Pública, Autos do Processo de
-                    n. 0256579-84.2015.8.0433, corresponde a 57,94% do valor total a que tem direito cada consorciado
+                    n. 0256579-84.2015.8.13.0433, corresponde a 57,94% do valor total a que tem direito cada consorciado
                     não contemplado. Informamos, ainda e, em complementação, que os consorciados, não contemplados, que
                     efetuaram pagamentos após a data de 21/01/2015 - momento em que restou decretada a Liquidação
                     Extrajudicial -, terão a restituição daqueles valores pagos de forma integral.

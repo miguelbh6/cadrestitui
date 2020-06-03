@@ -1,23 +1,4 @@
-﻿SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `cadrestitui`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `banco`
---
+﻿
 
 CREATE TABLE `banco` (
   `id` varchar(3) NOT NULL,
@@ -8294,3 +8275,8 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 ALTER TABLE `pessoa` ADD `numero` VARCHAR(5) NOT NULL AFTER `rua`;
+
+ALTER TABLE `pessoa` ADD `numero` VARCHAR(5) NOT NULL AFTER `rua`;
+ALTER TABLE `pessoa` CHANGE `sobrenome` `sobrenome` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+ALTER TABLE `pessoabanco` ADD `tpconta` VARCHAR(1) NOT NULL AFTER `vl_total`;
+ALTER TABLE `pessoa` CHANGE `id` `id` INT(5) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);

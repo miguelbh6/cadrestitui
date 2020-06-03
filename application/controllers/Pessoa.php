@@ -10,7 +10,7 @@ class Pessoa extends MY_Controller
         parent::__construct();
         $this->load->model('pessoa_model');
         $this->load->model('pessoabanco_model');
-        $this->dados['pessoas'] = $this->pessoa_model->getAll('2', 'asc');
+        $this->dados['pessoas'] = $this->pessoa_model->obterComDadosBancarios();
         $this->load->library('curl');
     }
 

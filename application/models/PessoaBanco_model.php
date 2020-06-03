@@ -11,7 +11,7 @@ class Pessoabanco_model extends MY_Model
     
     public function obterComNomeBanco($coluna, $ordem)
     {
-        $this->db->select('pb.id, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.cpf');
+        $this->db->select('pb.id, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.cpf, pb.tpconta');
         $this->db->from('pessoabanco pb');
         $this->db->join('banco b', 'b.id = pb.banco', 'inner');
         $this->db->order_by($coluna, $ordem);
@@ -23,6 +23,6 @@ class Pessoabanco_model extends MY_Model
     }
     
     public function existeCpf($id) {
-        return $this->getByCpf($id);
+        return count($this->getByCpf($id)) > 0;
     }
 }

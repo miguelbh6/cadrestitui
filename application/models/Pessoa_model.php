@@ -19,4 +19,19 @@ class Pessoa_model extends MY_Model
     {
         return $this->db->where('cpf', $id)->get($this->tabela)->row();
     }
+
+    public function existeCpf($id)
+    {
+        return count($this->getByCpf($id)) > 0;
+    }
+
+    public function obterComDadosBancarios()
+    {
+        $this->db->select('p.id as id, p.nome, p.cpf, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.cpf, pb.tpconta');
+        $this->db->from('pessoa p');
+        $this->db->join('pessoabanco pb', 'p.cpf = pb.cpf', 'inner');
+        $this->db->join('banco b', 'b.id = pb.banco', 'inner');
+        $this->db->order_by('p.nome', 'asc');
+        return $this->db->get()->result();
+    }
 }

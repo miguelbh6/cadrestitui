@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="title col-12 mb-5">
 		<h4> <?php
-echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto clique no botão Prosseguir';
+echo $pessoa->nome . ', conforme determinação judicial, segue o valor a ser restituído, clique em FINALIZAR para salvar seus dados';
 ?>: </h4>
 	</div>
 </div>
@@ -44,18 +44,10 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 		<label class="form-check-label" for="aceite">Li e aceito os termos e condições. </label>
 	</div>
 </div>
-<div class="row text-center">
-	<div class="col-6">
-		<button type="button" class="btn btn-primary" onclick="window.location='<?=base_url('site/passo2')?>'">
-			<i class="fas fa-backward"></i> Voltar
-		</button>
-	</div>
-	<div class="col-6">
-		<button type="button" id="btn_prosseguir" class="btn btn-primary" onclick="window.location='<?=base_url()?>site/passo4'" disabled>
-			<i class="fas fa-forward"></i> Prosseguir
-		</button>
-	</div>
-</div>
+<div class="row text-center mb-5">
+<div class="form-group col-12">
+				<span class="input-group-btn"><button id="btnFim" onclick="window.location='<?=base_url()?>site/passofinal'" class="btn btn-primary" disabled>Finalizar</button></span>
+			</div></div>
 <br>
 <div class="row text-center">
 	<div class="col-12">
@@ -66,9 +58,9 @@ echo $pessoa->nome . ', confira seu valor a ser restituído, caso esteja correto
 $('#aceite').change(
     function(){
         if (this.checked) {
-            $("#btn_prosseguir").prop("disabled", false);
+            $("#btnFim").prop("disabled", false);
         }else{
-			$("#btn_prosseguir").prop("disabled", true);
+			$("#btnFim").prop("disabled", true);
 		}
     });
 </script>
