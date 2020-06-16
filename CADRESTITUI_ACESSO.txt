@@ -5,6 +5,8 @@ cndn@super
 
 FTP
 ----------------
+ftp.cndn.com.br
+
 cndn3
 Cndn2016@super
 

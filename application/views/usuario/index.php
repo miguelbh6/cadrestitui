@@ -39,14 +39,10 @@
 						src="<?php echo base_url();?>assets/img/favicon.ico" alt=""
 						width="72" height="72">
 					<h1 class="h3 mb-3 font-weight-normal">Por favor, entre</h1>
-					<label for="inputEmail" class="sr-only">Usúario</label> <input
-						type="text" name="user" class="form-control" placeholder="Usúario"
+					<label for="inputEmail" class="sr-only">Usï¿½ario</label> <input
+						type="text" name="user" class="form-control" placeholder="Usï¿½ario"
 						required autofocus> <input type="password" name="password"
 						class="form-control" placeholder="Password" required>
-					<div class="checkbox mb-3">
-						<label> <input type="checkbox" value="remember-me"> Lembrar-me
-						</label>
-					</div>
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 				</form>
 			</div>

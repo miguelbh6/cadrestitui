@@ -23,7 +23,10 @@
                             <td><?= $it->cpf ?></td>
                             <td style="width: 30%;" class="text-center"><a href="<?= base_url('pessoa/editar/' . $it->id) ?>" title="Editar cadastro" class="btn btn-primary"><i class="far fa-edit"></i>
                                     Editar</span></a> <a href="#<?= $it->id; ?>" title="Apagar" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-<?= $it->id ?>"><i class="fas fa-trash-alt"></i> Apagar</span></a>
-                                <a href="#<?= $it->id; ?>" title="Consultar" class="btn btn-secondary" data-toggle="modal" data-target="#consulta-modal-<?= $it->id ?>"><i class="fas fa-info"></i></i> Consultar</span></a></td>
+                                    <?php if($it->agencia <> null) { ?>
+                                <a href="#<?= $it->id; ?>" title="Consultar" class="btn btn-secondary" data-toggle="modal" data-target="#consulta-modal-<?= $it->id ?>" ><i class="fas fa-info"></i></i> Consultar</span></a>
+                        <?php } ?>
+                                </td>
                         </tr>
 
 
