@@ -11,11 +11,12 @@
                 <thead>
                     <tr>
                         <th scope="col">CPF</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Banco</th>
                         <th scope="col">Agencia</th>
                         <th scope="col">Tipo de conta</th>
                         <th scope="col">Conta</th>
-                        <th scope="col">Valor total</th>
+                        <th scope="col">Valor Total</th>
                         <th class="text-center" scope="col">Acões</th>
                     </tr>
                 </thead>
@@ -23,6 +24,7 @@
 					foreach ($pessoas as $it) :
 					?>
                 <td><?=$it->cpf ?></td>
+                <td><?=$it->nome ?></td>
                 <td><?=$it->banco ?></td>
                 <td><?=$it->agencia ?></td>
                 <td><?=$it->tpconta == '1' ? 'Corrente' : 'Poupança' ?></td>

@@ -11,9 +11,10 @@ class Pessoabanco_model extends MY_Model
     
     public function obterComNomeBanco($coluna, $ordem)
     {
-        $this->db->select('pb.id, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.cpf, pb.tpconta');
+        $this->db->select('pb.id, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.cpf, pb.tpconta, p.nome');
         $this->db->from('pessoabanco pb');
         $this->db->join('banco b', 'b.id = pb.banco', 'inner');
+        $this->db->join('pessoa p', 'p.cpf = pb.cpf', 'inner');
         $this->db->order_by($coluna, $ordem);
         return $this->db->get()->result();
     }

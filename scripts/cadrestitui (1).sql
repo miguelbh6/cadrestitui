@@ -8280,3 +8280,5 @@ ALTER TABLE `pessoa` ADD `numero` VARCHAR(5) NOT NULL AFTER `rua`;
 ALTER TABLE `pessoa` CHANGE `sobrenome` `sobrenome` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
 ALTER TABLE `pessoabanco` ADD `tpconta` VARCHAR(1) NOT NULL AFTER `vl_total`;
 ALTER TABLE `pessoa` CHANGE `id` `id` INT(5) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+ALTER TABLE `pessoa` ADD `aceite` INT(1) NOT NULL AFTER `uf`;
+ALTER TABLE `pessoa` CHANGE `aceite` `aceite` INT(1) NOT NULL DEFAULT '0';

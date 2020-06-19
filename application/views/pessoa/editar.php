@@ -33,12 +33,6 @@ $(function() {
             </div>
             <div class="row">
                 <div class="col-12 mb-3">
-                    <input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome" required
-                        value="<?=(isset($pessoa) ? $pessoa->sobrenome : '') ?>">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 mb-3">
                     <input type="text" name="cpf" class="form-control" placeholder="CPF" required
                         value="<?=(isset($pessoa) ? $pessoa->cpf : '') ?>" disabled>
                 </div>

@@ -235,4 +235,12 @@ class Site extends MY_Controller
             return false;
         }
     }
+
+    public function aceiteFinal()
+    {
+        $aceite = $this->input->post('aceite');
+        $cpf = $this->session->userdata('cpf');
+        $this->pessoa_model->updateAceiteByCpf($cpf, 1);
+        redirect('site/passofinal');
+    }
 }
