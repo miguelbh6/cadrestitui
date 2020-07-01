@@ -27,7 +27,7 @@
                 <td><?=$it->nome ?></td>
                 <td><?=$it->banco ?></td>
                 <td><?=$it->agencia ?></td>
-                <td><?=$it->tpconta == '1' ? 'Corrente' : 'Poupança' ?></td>
+                <td><?=$it->tpconta == '1' ? 'Poupança' : 'Corrente' ?></td>
                 <td><?=$it->conta ?></td>
                 <td><?=$it->vl_total ?></td>
                 <td style="width: 20%;" class="text-center"> <a href="#<?=$it->id; ?>" title="Apagar"

@@ -55,6 +55,10 @@ $(function() {
                         value="<?=(isset($pessoa) ? $pessoa->tel2 : '') ?>">
                 </div>
             </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required maxlength="100"
+                value="<?=(isset($pessoa) ? $pessoa->email : '') ?>">
+			</div>
             <div class="row">
                 <div class="col-12 mb-3">
                     <input type="text" id="cep" name="cep" class="form-control" placeholder="CEP" required maxlength="9"
@@ -73,6 +77,10 @@ $(function() {
                         maxlength="255" value="<?=(isset($pessoa) ? $pessoa->rua : '') ?>">
                 </div>
             </div>
+            <div class="form-group">
+                <input type="text" name="numero" id="numero" class="form-control" placeholder="Número" required maxlength="255"
+                value="<?=(isset($pessoa) ? $pessoa->numero : '') ?>">
+			</div>
             <div class="row">
                 <div class="col-12 mb-3">
                     <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required
