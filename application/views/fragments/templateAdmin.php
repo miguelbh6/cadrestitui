@@ -21,10 +21,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active"><a class="nav-link"
-							href="<?=base_url('pessoa');?>">Pessoas <span
+							href="<?=base_url('pessoa');?>">Pessoas cadastradas<span
 								class="sr-only">(current)</span></a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="<?=base_url('pessoabanco');?>">Dados bancarios</a></li>
+							href="<?=base_url('pessoabanco');?>">Pessoas com cadastros bancários</a></li>
 					</ul>
 				</div>
 				<ul class="navbar-nav">
@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<br>
-	<div class="container">	   
+	<div class="container-fluid">	   
 	<?php  require_once( __DIR__. '../../fragments/alert.php'); ?>
 	<?php echo $contents; ?>
 	   </div>

@@ -10,7 +10,7 @@ class Pessoabanco extends MY_Controller
     {
         parent::__construct();
         $this->load->model('pessoabanco_model');
-        $this->dados['pessoas'] = $this->pessoabanco_model->obterComNomeBanco('8', 'asc');
+        $this->dados['pessoas'] = $this->pessoabanco_model->obterComNomeBanco('9', 'asc');
     }
 
     public function index()

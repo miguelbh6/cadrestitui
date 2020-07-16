@@ -12,11 +12,12 @@
                     <tr>
                         <th scope="col">CPF</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Data cadastro</th>
                         <th scope="col">Banco</th>
                         <th scope="col">Agencia</th>
                         <th scope="col">Tipo de conta</th>
                         <th scope="col">Conta</th>
-                        <th scope="col">Valor Total</th>
+                        <th scope="col">Total</th>
                         <th class="text-center" scope="col">Acões</th>
                     </tr>
                 </thead>
@@ -25,9 +26,10 @@
 					?>
                 <td><?=$it->cpf ?></td>
                 <td><?=$it->nome ?></td>
+                <td><?= date ("d/m/Y H:i:s",strtotime($it->dt_inclusao)); ?></td>
                 <td><?=$it->banco ?></td>
                 <td><?=$it->agencia ?></td>
-                <td><?=$it->tpconta == '1' ? 'Poupança' : 'Corrente' ?></td>
+                <td><?=$it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></td>
                 <td><?=$it->conta ?></td>
                 <td><?=$it->vl_total ?></td>
                 <td style="width: 20%;" class="text-center"> <a href="#<?=$it->id; ?>" title="Apagar"

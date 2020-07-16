@@ -12,6 +12,7 @@
                         <tr>
                             <th scope="col">Nome</th>
                             <th scope="col">CPF</th>
+                            <th scope="col">Data cadastro</th>
                             <th scope="col">Aceite</th>
                             <th class="text-center" scope="col">Acões</th>
                         </tr>
@@ -22,6 +23,7 @@
                         <tr>
                             <td><?= $it->nome ?></td>
                             <td><?= $it->cpf ?></td>
+                            <td><?= date ("d/m/Y H:i:s",strtotime($it->dt_inclusao)); ?></td>
                             <td><?= $it->aceite == 1 ? 'Sim' : 'Não' ?></td>
                             <td style="width: 30%;" class="text-center"><a href="<?= base_url('pessoa/editar/' . $it->id) ?>" title="Editar cadastro" class="btn btn-primary"><i class="far fa-edit"></i>
                                     Editar</span></a> <a href="#<?= $it->id; ?>" title="Apagar" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-<?= $it->id ?>"><i class="fas fa-trash-alt"></i> Apagar</span></a>
@@ -72,14 +74,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Tipo de Conta</b></label>
-                                            <p><?= $it->tpconta == '1' ? 'Corrente' : 'Poupança' ?></p>
+                                            <p><?= $it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label><b>Conta</b></label>
                                             <p><?= $it->conta; ?></p>
                                         </div>
                                         <div class="form-group">
-                                            <label><b>Valor total</b></label>
+                                            <label><b>Total</b></label>
                                             <p>R$ <?= $it->vl_total; ?></p>
                                         </div>
                                         

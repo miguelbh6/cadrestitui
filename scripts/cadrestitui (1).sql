@@ -8282,3 +8282,4 @@ ALTER TABLE `pessoabanco` ADD `tpconta` VARCHAR(1) NOT NULL AFTER `vl_total`;
 ALTER TABLE `pessoa` CHANGE `id` `id` INT(5) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
 ALTER TABLE `pessoa` ADD `aceite` INT(1) NOT NULL AFTER `uf`;
 ALTER TABLE `pessoa` CHANGE `aceite` `aceite` INT(1) NOT NULL DEFAULT '0';
+ALTER TABLE `pessoa` ADD `dt_inclusao` datetime	NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `aceite`;

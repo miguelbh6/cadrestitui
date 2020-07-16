@@ -27,11 +27,11 @@ class Pessoa_model extends MY_Model
 
     public function obterComDadosBancarios()
     {
-        $this->db->select('p.id as id, p.nome, p.cpf, p.aceite, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.tpconta');
+        $this->db->select('p.id as id, p.nome, p.cpf, p.aceite, p.dt_inclusao, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.tpconta');
         $this->db->from('pessoa p');
         $this->db->join('pessoabanco pb', 'p.cpf = pb.cpf', 'left');
         $this->db->join('banco b', 'b.id = pb.banco', 'left');
-        $this->db->order_by('p.nome', 'asc');
+        $this->db->order_by('p.dt_inclusao', 'asc');
         return $this->db->get()->result();
     }
 

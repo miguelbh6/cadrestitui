@@ -69,7 +69,7 @@ $(function() {
                     85 da Lei supra citada, que efetuem, neste site, o registro cadastral para fins de recebimento dos
                     créditos a que têm direito.
                     Para os casos especiais, nos quais tenham ocorrido morte ou incapacidade do consorciado, não
-                    contemplado, o cadastro se dará, exclusivamente, através do e-mail consorcio@cndn.com.br, onde serão
+                    contemplado, o cadastro se dará, exclusivamente, através do e-mail <a href="mailto:administrativo@cndn.com.br">administrativo@cndn.com.br</a>, onde serão
                     informados dos procedimentos a serem adotados pelos herdeiros ou representantes legais.
                     A restituição homologada pelo Juiz da 2ª Vara Empresarial e de Fazenda Pública, Autos do Processo de
                     n. 0256579-84.2015.8.13.0433, corresponde a 57,94% do valor total a que tem direito cada consorciado

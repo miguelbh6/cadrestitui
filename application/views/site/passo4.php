@@ -43,6 +43,7 @@
 				<input type="text" name="conta" class="form-control" placeholder="Conta" required>
 			</div>
 
+			<!--
 			<div class="row text-center">
 				<div class="col-1"></div>
 				<div class="col-11 text-justify">
@@ -56,6 +57,7 @@
 						</strong></p>
 				</div>
 			</div>
+					-->
 
 
 			<div class="row text-center">

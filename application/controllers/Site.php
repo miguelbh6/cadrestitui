@@ -83,7 +83,7 @@ class Site extends MY_Controller
 
     public function passofinal()
     {
-        //$this->enviarEmail();
+        $this->enviarEmail();
         $this->template->load(self::TEMPLATE, self::BASE_URL . '/passofinal', $this->dados);
     }
 
@@ -115,7 +115,7 @@ class Site extends MY_Controller
                 redirect(self::BASE_URL);
             }
         } else {
-            $this->session->set_flashdata('msg-error', 'Já existe dados pessoais cadastrados para o CPF informado');
+            $this->session->set_flashdata('msg-error', 'O CPF informado não finalizou o cadastro anterior. Aguardar a exclusão automática e em 48 horas será liberado');
             redirect(self::BASE_URL . '/passo2');
         }
     }
@@ -140,8 +140,8 @@ class Site extends MY_Controller
     public function enviarEmail()
     {
         $this->email->initialize($this->dados['configEmail']);
-        $this->email->from('miguelbh6@gmail.com', 'Administrador');
-        $this->email->subject("CNDN - Bem vindo");
+        $this->email->from('admincadrestitui@cndn.com.br', 'Administrador Cadrestitui');
+        $this->email->subject("CNDN – Confirmação cadastral (Não responda este e-mail)");
         $this->email->reply_to('miguelbh6@gmail.com');
         $this->email->to('miguelbh6@gmail.com');
         $conteudo_msg = $this->load->view('templates_email/bemvindo', '', true);
