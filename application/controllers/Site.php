@@ -142,9 +142,9 @@ class Site extends MY_Controller
         $cpf = $this->session->userdata('cpf');
         $pessoa = $this->pessoa_model->getByCpf($cpf);
         $this->email->initialize($this->dados['configEmail']);
-        $this->email->from('admincadrestitui@cndn.com.br', 'Administrador Cadrestitui');
+        $this->email->from('atendimento@cndn.com.br', 'Atendimento Cadrestitui');
         $this->email->subject("CNDN – Confirmação cadastral (Não responda este e-mail)");
-        $this->email->reply_to('admincadrestitui@cndn.com.br');
+        $this->email->reply_to('atendimento@cndn.com.br');
         $this->email->to($pessoa->email);
         $conteudo_msg = $this->load->view('templates_email/bemvindo', '', true);
         $this->email->message($conteudo_msg);
