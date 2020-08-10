@@ -242,7 +242,13 @@ class Site extends MY_Controller
     {
         $aceite = $this->input->post('aceite');
         $cpf = $this->session->userdata('cpf');
-        $this->pessoa_model->updateAceiteByCpf($cpf, 1);
+
+        if (empty($aceite)){
+            $this->pessoa_model->updateAceiteByCpf($cpf, 0);    
+        }else{
+            $this->pessoa_model->updateAceiteByCpf($cpf, 1);     
+        }
+
         redirect('site/passofinal');
     }
 }
