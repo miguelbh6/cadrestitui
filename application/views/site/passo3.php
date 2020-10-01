@@ -41,7 +41,7 @@
 <div class="row text-center mb-5">
 	<div class="col-12">
 		<form action="<?php echo base_url(); ?>site/aceiteFinal" method="post" accept-charset="utf-8" role="form">
-			<input type="checkbox" class="form-check-input" id="aceite" name="aceite">
+			<input type="checkbox" class="form-check-input" id="aceite" name="aceite" value="1">
 			<label class="form-check-label" for="aceite">Li e aceito os termos e condições. </label>
 
 	</div>
