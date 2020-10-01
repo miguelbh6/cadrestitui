@@ -65,6 +65,11 @@ class Site extends MY_Controller
     public function passo3()
     {
         $cpf = $this->session->userdata('cpf');
+
+        $pessoa = $this->session->userdata('pessoa_' . $cpf);
+        $nome = $pessoa['nome'];
+        //print_r($pessoa['nome']);
+        $this->dados['nome'] = $pessoa['nome'];
         $this->dados['pessoa'] = $this->pessoa_model->getByCpf($cpf);
         $this->dados['planilhas'] = $this->planilha_model->getByCpf($cpf);
         $this->dados['valrest'] = $this->session->userdata('vl_total');
@@ -107,7 +112,8 @@ class Site extends MY_Controller
             $dados = $this->input->post();
             $dados['cpf'] = $cpf;
 
-            $this->pessoa_model->save($dados['id'], $dados);
+            //$this->pessoa_model->save($dados['id'], $dados);
+            $this->session->set_userdata('pessoa_' . $cpf, $dados);
 
             if ($dados['id'] == null) {
                 redirect('site/passo4');
@@ -129,7 +135,10 @@ class Site extends MY_Controller
             $dados = $this->input->post();
             $dados['cpf'] = $cpf;
             $dados['vl_total'] = $this->session->userdata('vl_total');
-            $this->pessoabanco_model->save(null, $dados);
+            //$this->pessoabanco_model->save(null, $dados);
+
+            $this->session->set_userdata('pessoabanco_' . $cpf, $dados);
+
             redirect('site/passo3');
         } else {
             $this->session->set_flashdata('msg-error', 'Já existe dados bancarios cadastrados para o CPF informado');
@@ -240,9 +249,20 @@ class Site extends MY_Controller
 
     public function aceiteFinal()
     {
-        $aceite = $this->input->post('aceite');
-        $cpf = $this->session->userdata('cpf');
-        $this->pessoa_model->updateAceiteByCpf($cpf, 1);
-        redirect('site/passofinal');
+        if ($this->input->post('aceite') != null) {
+            $cpf = $this->session->userdata('cpf');
+            $dados = $this->session->userdata('pessoa_' . $cpf);
+            $this->pessoa_model->save(null, $dados);
+
+            $dados = $this->session->userdata('pessoabanco_' . $cpf);
+            $this->pessoabanco_model->save(null, $dados);
+            $cpf = $this->session->userdata('cpf');
+            $this->pessoa_model->updateAceiteByCpf($cpf, 1);
+            redirect('site/passofinal');
+            
+        } else {
+            $this->session->set_flashdata('msg-error', 'Favor realizar aceite');
+            redirect('site/passo3');
+        }
     }
 }

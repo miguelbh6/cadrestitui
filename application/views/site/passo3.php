@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="title col-12 mb-5">
 		<h4> <?php
-				echo $pessoa->nome . ', conforme determinação judicial, segue o valor a ser restituído, dê o <b>ACEITE</b> e em seguida clique em <b>FINALIZAR</b> para salvar seus dados';
+				echo $nome . ', conforme determinação judicial, segue o valor a ser restituído, dê o <b>ACEITE</b> e em seguida clique em <b>FINALIZAR</b> para salvar seus dados';
 				?>: </h4>
 	</div>
 </div>

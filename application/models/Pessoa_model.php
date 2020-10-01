@@ -40,4 +40,27 @@ class Pessoa_model extends MY_Model
         $this->db->where('cpf', $cpf);
         $this->db->update($this->tabela); // gives UPDATE `mytable` SET `field` = 'field+1' WHERE `id` = 2
     }
+
+    public function obterPorFiltros($cpf, $ind_pago, $dt_pago)
+    {
+        $this->db->select('p.id as id, p.nome, p.cpf, p.aceite, p.dt_inclusao, b.nome as banco, pb.agencia, pb.conta, pb.vl_total, pb.tpconta');
+        $this->db->from('pessoa p');
+        $this->db->join('pessoabanco pb', 'p.cpf = pb.cpf', 'left');
+        $this->db->join('banco b', 'b.id = pb.banco', 'left');
+
+        if (!empty($cpf)) {
+            $this->db->like('p.cpf', $cpf);
+        }
+
+        if (!empty($ind_pago) && $ind_pago != '0') {
+            $this->db->where('pb.ind_pago', $ind_pago);
+        }
+
+        if (!empty($dt_pago)) {
+            $this->db->where('pb.dt_pago >=', $dt_pago);
+        }
+
+        $this->db->order_by('p.dt_inclusao', 'asc');
+        return $this->db->get()->result();
+    }
 }

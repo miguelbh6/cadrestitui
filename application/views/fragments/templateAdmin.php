@@ -43,7 +43,7 @@
 	<?php  require_once( __DIR__. '../../fragments/alert.php'); ?>
 	<?php echo $contents; ?>
 	   </div>
-</body>
+</body><!--
 <footer>
 	<div class="row">
 		<div class="col-12">
@@ -55,6 +55,6 @@
 			</nav>
 		</div>
 	</div>
-<!-- <?php  require_once( __DIR__. '../../fragments/footer.php'); ?> -->
-</footer>
+ <?php  require_once( __DIR__. '../../fragments/footer.php'); ?> 
+</footer>-->
 </html>
