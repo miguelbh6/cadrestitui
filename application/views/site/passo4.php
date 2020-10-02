@@ -68,7 +68,7 @@
 				</div>
 				<div class="col-6">
 					<button type="submit" id="btn_prosseguir" class="btn btn-primary">
-						<i class="fas fa-forward"></i> Prosseguir
+						<i class="fas fa-forward"></i> Próximo
 					</button>
 				</div>
 			</div>

@@ -74,7 +74,7 @@
 				</div>
 				<div class="col-6 mb-3">
 					<span class="input-group-btn"><button type="submit" class="btn btn-primary">
-							<i class="fas fa-save"></i> Cadastrar
+							<i class="fas fa-forward"></i> Próximo
 						</button></span>
 				</div>
 			</div>

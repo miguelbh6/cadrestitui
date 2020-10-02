@@ -24,11 +24,15 @@ class Pessoa extends MY_Controller
     {
         $pessoa = $this->pessoa_model->getById($id);
 
-        if (!$this->pessoabanco_model->existeCpf($pessoa->cpf)) {
-            $this->pessoa_model->delete($id);
-        } else {
-            $this->session->set_flashdata('msg-error', 'Nao e permitido excluir esta pessoa, pois possui dados bancarios');
-        }
+        
+        $this->pessoabanco_model->removerPorCpf($pessoa->cpf);
+        $this->pessoa_model->delete($id);
+       // if (!$this->pessoabanco_model->existeCpf($pessoa->cpf)) {
+            
+        //} 
+        //else {
+          //  $this->session->set_flashdata('msg-error', 'Nao e permitido excluir esta pessoa, pois possui dados bancarios');
+        //}
         redirect(self::BASE_URL);
     }
 
@@ -53,7 +57,8 @@ class Pessoa extends MY_Controller
     public function cadastrar()
     {
         $dados = $this->input->post();
-        $dados['cpf'] = $this->session->userdata('cpf');
+        $dados['cpf'] = !is_null($this->session->userdata('cpf')) ? $this->session->userdata('cpf') : $this->input->post('cpf');
+        $dados['cpf'] = preg_replace('/[^0-9]/is', '', $dados['cpf']);
 
         $this->pessoa_model->save($dados['id'], $dados);
 

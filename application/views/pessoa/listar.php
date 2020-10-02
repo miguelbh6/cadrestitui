@@ -7,7 +7,7 @@
     <div class="col-md-12 mb-3">
         <?php echo form_open('pessoa/pesquisar'); ?>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
 
             </div>
             <div class="col-md-1 row justify-content-center">
@@ -18,7 +18,7 @@
 
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <input type="text" name="cpf_pesquisa" for="pesquisar" value="" class="form-control" placeholder="CPF ou CNPJ">
             </div>
             <div class="col-md-1 row justify-content-center">
@@ -27,7 +27,7 @@
             <div class="col-md-2">
                 <input type="text" name="dt_pago_pesquisa" class="form-control" placeholder="Data pagamento" maxlength="10">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <button type="submit" class="btn btn-success btn-block">Pesquisar <span class="glyphicon glyphicon-search" aria-hidden="true" /></button>
             </div>
             <?php echo form_close(); ?>
@@ -45,7 +45,7 @@
                                     <th scope="col">Nome</th>
                                     <th scope="col">CPF</th>
                                     <th scope="col">Data cadastro</th>
-                                    <th scope="col">Aceite</th>
+                                   <!-- <th scope="col">Aceite</th> -->
                                     <th class="text-center" scope="col">Acões</th>
                                 </tr>
                             </thead>
@@ -56,11 +56,11 @@
                                     <td><?= $it->nome ?></td>
                                     <td><?= $it->cpf ?></td>
                                     <td><?= date("d/m/Y H:i:s", strtotime($it->dt_inclusao)); ?></td>
-                                    <td><?= $it->aceite == 1 ? 'Sim' : 'Não' ?></td>
+                                  <!--  <td><?= $it->aceite == 1 ? 'Sim' : 'Não' ?></td>-->
                                     <td style="width: 30%;" class="text-center"><a href="<?= base_url('pessoa/editar/' . $it->id) ?>" title="Editar cadastro" class="btn btn-primary"><i class="far fa-edit"></i>
                                             Editar</span></a> <a href="#<?= $it->id; ?>" title="Apagar" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-<?= $it->id ?>"><i class="fas fa-trash-alt"></i> Apagar</span></a>
                                         <?php if ($it->agencia <> null) { ?>
-                                            <a href="#<?= $it->id; ?>" title="Consultar" class="btn btn-secondary" data-toggle="modal" data-target="#consulta-modal-<?= $it->id ?>"><i class="fas fa-info"></i></i> Consultar</span></a>
+                                            <a href="#<?= $it->id; ?>" title="Detalhes" class="btn btn-secondary" data-toggle="modal" data-target="#consulta-modal-<?= $it->id ?>"><i class="fas fa-info"></i></i> Detalhes</span></a>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -89,7 +89,7 @@
                                 <div class="modal fade" id="consulta-modal-<?= $it->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header alert-primary">
                                                 <h6 class="modal-title" id="modalLabel">Dados bancarios <?= $it->nome ?> </h6>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                     <span aria-hidden="true">&times;</span>
@@ -115,6 +115,10 @@
                                                 <div class="form-group">
                                                     <label><b>Total</b></label>
                                                     <p>R$ <?= $it->vl_total; ?></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label><b>Data pagamento</b></label>
+                                                    <p> <?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></p>
                                                 </div>
 
                                             </div>

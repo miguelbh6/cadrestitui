@@ -57,7 +57,7 @@
 
 <div class="row text-center mb-5">
 	<div class="form-group col-12">
-		<span class="input-group-btn"><button id="btnFim" type="submit" class="btn btn-primary">Finalizar</button></span>
+		<span class="input-group-btn"><button id="btnFim" type="submit" class="btn btn-primary"><i class="far fa-thumbs-up"></i> Finalizar</button></span>
 	</div>
 </div>
 </form>

@@ -18,6 +18,7 @@
                         <th scope="col">Tipo de conta</th>
                         <th scope="col">Conta</th>
                         <th scope="col">Total</th>
+                        <th scope="col">Data Pagamento</th>
                         <th class="text-center" scope="col">Acões</th>
                     </tr>
                 </thead>
@@ -32,9 +33,20 @@
                 <td><?=$it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></td>
                 <td><?=$it->conta ?></td>
                 <td><?=$it->vl_total ?></td>
-                <td style="width: 20%;" class="text-center"> <a href="#<?=$it->id; ?>" title="Apagar"
+                <td><?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></td>
+                <td style="width: 20%;" class="text-center"> 
+                <!--<a href="#<?=$it->id; ?>" title="Apagar"
                         class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-<?=$it->id ?>"><i
-                            class="fas fa-trash-alt"></i> Apagar</span></a></td>
+                            class="fas fa-trash-alt"></i> Apagar</span></a>-->
+                            
+                            <?php if ($it->ind_pago == '0' || is_null($it->ind_pago)) { ?>
+                            <a href="<?= base_url('pessoabanco/pagar/' . $it->id) ?>" title="Pagamento" class="btn btn-primary">
+                            <i class="fas fa-hand-holding-usd"></i> Pagar</span></a>
+                            <?php } else { ?>
+                                <a href="<?= base_url('pessoabanco/desfazerpagamento/' . $it->id) ?>" title="Desfazer pagamento" class="btn btn-danger">
+                            <i class="fas fa-hand-holding-usd"></i> Desfazer pagamento</span></a>
+                            <?php }  ?>
+                            </td>
                 </tr>
 
                 <!-- Modal delete -->
