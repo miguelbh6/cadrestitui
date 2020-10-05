@@ -54,7 +54,38 @@
                             ?>
                                 <tr>
                                     <td><?= $it->nome ?></td>
-                                    <td><?= $it->cpf ?></td>
+
+
+
+                                    <td><?php 
+                                    
+
+
+                                    if(strlen($it->cpf) == 11){
+
+$parte_um     = substr($it->cpf, 0, 3);
+$parte_dois   = substr($it->cpf, 3, 3);
+$parte_tres   = substr($it->cpf, 6, 3);
+$parte_quatro = substr($it->cpf, 9, 2);
+
+$monta_cpf = "$parte_um.$parte_dois.$parte_tres-$parte_quatro";
+                                    
+echo $monta_cpf; } else{
+    $parte_um     = substr($it->cpf, 0, 2);
+$parte_dois   = substr($it->cpf, 2, 3);
+$parte_tres   = substr($it->cpf, 5, 3);
+$parte_quatro = substr($it->cpf, 8, 4);
+$parte_cinco = substr($it->cpf, 12, 2);
+
+$monta_cpf = "$parte_um.$parte_dois.$parte_tres/$parte_quatro-$parte_cinco";
+                                    
+echo $monta_cpf;
+
+}
+
+
+
+?></td>
                                     <td><?= date("d/m/Y H:i:s", strtotime($it->dt_inclusao)); ?></td>
                                   <!--  <td><?= $it->aceite == 1 ? 'Sim' : 'Não' ?></td>-->
                                     <td style="width: 30%;" class="text-center"><a href="<?= base_url('pessoa/editar/' . $it->id) ?>" title="Editar cadastro" class="btn btn-primary"><i class="far fa-edit"></i>

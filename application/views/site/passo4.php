@@ -39,8 +39,13 @@
 					<label class="form-check-label" for="inlineRadio2">Poupança</label>
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group row">
+			<div class="col-3">
 				<input type="text" name="conta" class="form-control" placeholder="Conta" required>
+			</div>
+			<div class="col-1">
+				<input type="text" name="dv" class="form-control" placeholder="DV" required maxlength="1" size="1">
+			</div>
 			</div>
 
 			<!--

@@ -31,7 +31,6 @@ $dados['ind_pago'] = 1;
 date_default_timezone_set('America/Sao_Paulo');
 $dados['dt_pago'] = date('Y-m-d H:i:s');
         $this->pessoabanco_model->save($id, $dados);
-        print_r($this->db->last_query());
         redirect(self::BASE_URL);
     }
 
@@ -40,7 +39,6 @@ $dados['dt_pago'] = date('Y-m-d H:i:s');
 $dados['ind_pago'] = 0;
 $dados['dt_pago'] = null;
         $this->pessoabanco_model->save($id, $dados);
-        print_r($this->db->last_query());
         redirect(self::BASE_URL);
     }
 }

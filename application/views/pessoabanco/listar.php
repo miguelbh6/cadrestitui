@@ -25,14 +25,42 @@
                 <?php
 					foreach ($pessoas as $it) :
 					?>
-                <td><?=$it->cpf ?></td>
+                <td><?php 
+                                    
+
+
+                                    if(strlen($it->cpf) == 11){
+
+$parte_um     = substr($it->cpf, 0, 3);
+$parte_dois   = substr($it->cpf, 3, 3);
+$parte_tres   = substr($it->cpf, 6, 3);
+$parte_quatro = substr($it->cpf, 9, 2);
+
+$monta_cpf = "$parte_um.$parte_dois.$parte_tres-$parte_quatro";
+                                    
+echo $monta_cpf; } else{
+    $parte_um     = substr($it->cpf, 0, 2);
+$parte_dois   = substr($it->cpf, 2, 3);
+$parte_tres   = substr($it->cpf, 5, 3);
+$parte_quatro = substr($it->cpf, 8, 4);
+$parte_cinco = substr($it->cpf, 12, 2);
+
+$monta_cpf = "$parte_um.$parte_dois.$parte_tres/$parte_quatro-$parte_cinco";
+                                    
+echo $monta_cpf;
+
+}
+
+
+
+?></td>
                 <td><?=$it->nome ?></td>
                 <td><?= date ("d/m/Y H:i:s",strtotime($it->dt_inclusao)); ?></td>
                 <td><?=$it->banco ?></td>
                 <td><?=$it->agencia ?></td>
                 <td><?=$it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></td>
-                <td><?=$it->conta ?></td>
-                <td><?=$it->vl_total ?></td>
+                <td><?=$it->conta .'-' . $it->dv?></td>
+                <td><?='R$' . $it->vl_total ?></td>
                 <td><?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></td>
                 <td style="width: 20%;" class="text-center"> 
                 <!--<a href="#<?=$it->id; ?>" title="Apagar"
