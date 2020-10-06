@@ -22,7 +22,17 @@ INSERT INTO `banco` (`id`, `nome`) VALUES
 ('453', 'Banco Rural S.A.'),
 ('633', 'Banco Rendimento S.A.'),
 ('652', 'Itaú Unibanco Holding S.A.'),
-('745', 'Banco Citibank S.A');
+('745', 'Banco Citibank S.A'),
+('25', 'Banco Alfa S.A.'),
+('318', 'Banco BMG S.A.'),
+('233', 'Banco Cifra S.A.'),
+('756', 'Banco Cooperativo do Brasil S.A. - BANCOOB'),
+('4', 'Banco do Nordeste do Brasil S.A.'),
+('77', 'Banco Inter S.A.'),
+('389', 'Banco Mercantil do Brasil S.A.'),
+('212', 'Banco Original S.A.'),
+('102', 'Banco XP S.A.'),
+('260', 'Nu Pagamentos S.A.');
 
 -- --------------------------------------------------------
 
