@@ -34,7 +34,7 @@
         </div>
     </div>
 </div>
-        <br>
+        
 
         <?php if (!empty($pessoas)) { ?>
             <div class="row">
