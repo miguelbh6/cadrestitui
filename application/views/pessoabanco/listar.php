@@ -3,6 +3,37 @@
         <h3>Pessoas com cadastro bancarios</h3>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <?php echo form_open('pessoabanco/pesquisar'); ?>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-1 row justify-content-center">
+                <label class="form-check-label" for="pago">Pago</label>
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="cpf_pesquisa" for="pesquisar" value="" class="form-control" placeholder="CPF ou CNPJ">
+            </div>
+            <div class="col-md-1 row justify-content-center">
+                <input type="checkbox" class="form-check-input" name="ind_pago_pesquisa">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="dt_pago_pesquisa" class="form-control" placeholder="Data pagamento" maxlength="10">
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-success btn-block">Pesquisar <span class="glyphicon glyphicon-search" aria-hidden="true" /></button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
 <?php if (!empty($pessoas)) { ?>
 <div class="row">
     <div class="col-md-12">

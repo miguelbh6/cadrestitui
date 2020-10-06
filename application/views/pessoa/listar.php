@@ -32,7 +32,8 @@
             </div>
             <?php echo form_close(); ?>
         </div>
-
+    </div>
+</div>
         <br>
 
         <?php if (!empty($pessoas)) { ?>

@@ -70,7 +70,7 @@ class Pessoa extends MY_Controller
     }
 
     public function pesquisar() {
-        $cpf_pesquisa = $this->input->post('cpf_pesquisa');
+        $cpf_pesquisa = preg_replace('/[^0-9]/is', '', $this->input->post('cpf_pesquisa'));
         $ind_pago_pesquisa = $this->input->post('ind_pago_pesquisa') != null ? 1 : 0;
         $dt_pago_pesquisa = $this->input->post('dt_pago_pesquisa');
         $dt_pago_pesquisa= !empty($dt_pago_pesquisa) ? date('Y-d-m H:i:s',strtotime($dt_pago_pesquisa)) : null;
