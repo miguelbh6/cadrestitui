@@ -60,7 +60,7 @@ echo $monta_cpf;
                 <td><?=$it->agencia ?></td>
                 <td><?=$it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></td>
                 <td><?=$it->conta .'-' . $it->dv?></td>
-                <td><?='R$' . $it->vl_total ?></td>
+                <td><?='R$' . number_format($it->vl_total, 2, ',', '.') ?></td>
                 <td><?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></td>
                 <td style="width: 20%;" class="text-center"> 
                 <!--<a href="#<?=$it->id; ?>" title="Apagar"
