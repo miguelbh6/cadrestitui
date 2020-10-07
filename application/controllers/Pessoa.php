@@ -73,7 +73,7 @@ class Pessoa extends MY_Controller
         $cpf_pesquisa = preg_replace('/[^0-9]/is', '', $this->input->post('cpf_pesquisa'));
         $ind_pago_pesquisa = $this->input->post('ind_pago_pesquisa');
         $dt_pago_pesquisa = $this->input->post('dt_pago_pesquisa');
-        $dt_pago_pesquisa= !empty($dt_pago_pesquisa) ? date('Y-d-m H:i:s',strtotime($dt_pago_pesquisa)) : null;
+        $dt_pago_pesquisa= !empty($dt_pago_pesquisa) ? $dt_pago_pesquisa : null;
 
         if (!empty($cpf_pesquisa) || !empty($ind_pago_pesquisa) || !empty($dt_pago_pesquisa)) {
             $this->dados['pessoas'] = $this->pessoa_model->obterPorFiltros($cpf_pesquisa, $ind_pago_pesquisa, $dt_pago_pesquisa);

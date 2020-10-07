@@ -135,7 +135,7 @@ echo $monta_cpf;
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Conta</b></label>
-                                                    <p><?= $it->conta; ?></p>
+                                                    <p><?= $it->conta.'-'.$it->dv; ?></p>
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Total</b></label>
@@ -143,7 +143,7 @@ echo $monta_cpf;
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Data pagamento</b></label>
-                                                    <p> <?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></p>
+                                                    <p> <?= !is_null($it->dt_pago) ? $it->dt_pago : '' ?></p>
                                                 </div>
 
                                             </div>
@@ -161,7 +161,7 @@ echo $monta_cpf;
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pagination">
-                                <b>Todal de Registros: <?= sizeof($pessoas); ?></b>
+                                <b>Total de Registros: <?= sizeof($pessoas); ?></b>
                             </div>
                         </div>
                     </div>

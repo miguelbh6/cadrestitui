@@ -42,8 +42,7 @@
 			<label>Data pagamento</label>
 						<div class="row">
                 <div class="col-12 mb-3">
-                    <input type="text" name="dt_pago" class="form-control" placeholder="Data pagamento" required
-                        maxlength="10" value="<?php echo (isset($pessoabanco) ? $pessoabanco->dt_pago : '') ?>">
+                    <input type="text" name="dt_pago" class="form-control" placeholder="Data pagamento"  maxlength="10" value="<?php echo (isset($pessoabanco) ? $pessoabanco->dt_pago : '') ?>">
                 </div>
             </div>
 			<div class="row">

@@ -8,7 +8,7 @@
 	<div class="col-1"></div>
 	<div class="title col-11">
 		<h7>
-			<p class="text-danger"><strong>*SOMENTE SERÃO ACEITOS DADOS BANCÁRIOS DE MESMA TITULARIDADE DO SOLICITANTE</strong></p>
+			<p class="text-danger"><strong>ATENÇÃO!!! A CONTA A SER INFORMADA ABAIXO DEVE OBRIGATORIAMENTE PERTENCER AO CPF DO TITULAR DO CONTRATO.</strong></p>
 		</h7>
 	</div>
 </div>

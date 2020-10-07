@@ -129,7 +129,7 @@ echo $monta_cpf;
         <div class="row">
             <div class="col-md-12">
                 <div class="pagination">
-                    <b>Todal de Registros: <?=sizeof($pessoas); ?></b>
+                    <b>Total de Registros: <?=sizeof($pessoas); ?></b>
                 </div>
             </div>
         </div>
