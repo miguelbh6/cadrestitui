@@ -42,7 +42,8 @@ class Pessoabanco_model extends MY_Model
             $this->db->like('p.cpf', $cpf);
         }
 
-        if (!empty($ind_pago) && $ind_pago != '0') {
+        if (!empty($ind_pago)) {
+            $ind_pago = $ind_pago == 'S' ? '1' : '0';
             $this->db->where('pb.ind_pago', $ind_pago);
         }
 

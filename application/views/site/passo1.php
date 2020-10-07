@@ -6,7 +6,7 @@
 <div class="row text-center mb-5">
     <div class="col-12">
         <h3>
-            <p class="text-danger">Massa Falida DN Administradora de Consórcios</p>
+            <p style="color:#00008b;">Massa Falida DN Administradora de Consórcios</p>
         </h3>
     </div>
 </div>

@@ -8289,3 +8289,4 @@ ALTER TABLE `pessoa` ADD `dt_inclusao` datetime	NOT NULL DEFAULT CURRENT_TIMESTA
 ALTER TABLE `pessoabanco` ADD `ind_pago` SMALLINT(1) NULL AFTER `tpconta`;
 ALTER TABLE `pessoabanco` ADD `dt_pago` DATETIME NULL AFTER `ind_pago`;
 ALTER TABLE `pessoabanco` ADD `dv` INT(1) NULL AFTER `dt_pago`;
+ALTER TABLE `pessoabanco` CHANGE `dt_pago` `dt_pago` VARCHAR(10) NULL DEFAULT NULL;

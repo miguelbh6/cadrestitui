@@ -8,21 +8,14 @@
         <?php echo form_open('pessoabanco/pesquisar'); ?>
         <div class="row">
             <div class="col-md-3">
-
-            </div>
-            <div class="col-md-1 row justify-content-center">
-                <label class="form-check-label" for="pago">Pago</label>
-
-            </div>
-
-
-        </div>
-        <div class="row">
-            <div class="col-md-3">
                 <input type="text" name="cpf_pesquisa" for="pesquisar" value="" class="form-control" placeholder="CPF ou CNPJ">
             </div>
-            <div class="col-md-1 row justify-content-center">
-                <input type="checkbox" class="form-check-input" name="ind_pago_pesquisa">
+            <div class="col-md-2 row">
+                <select name="ind_pago_pesquisa" class="form-control">
+					<option value="S" selected>Pago</option>
+                    <option value="N" selected>A pagar</option>
+                    <option value="" selected>Todos</option>
+				</select>
             </div>
             <div class="col-md-2">
                 <input type="text" name="dt_pago_pesquisa" class="form-control" placeholder="Data pagamento" maxlength="10">
@@ -92,14 +85,15 @@ echo $monta_cpf;
                 <td><?=$it->tpconta == '0' ? 'Corrente' : 'Poupança' ?></td>
                 <td><?=$it->conta .'-' . $it->dv?></td>
                 <td><?='R$' . number_format($it->vl_total, 2, ',', '.') ?></td>
-                <td><?= !is_null($it->dt_pago) ? date ("d/m/Y H:i:s",strtotime($it->dt_pago)) : '' ?></td>
+                <td><?= !is_null($it->dt_pago) ? $it->dt_pago : '' ?></td>
                 <td style="width: 20%;" class="text-center"> 
                 <!--<a href="#<?=$it->id; ?>" title="Apagar"
                         class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-<?=$it->id ?>"><i
                             class="fas fa-trash-alt"></i> Apagar</span></a>-->
-                            
+                            <a href="<?= base_url('pessoabanco/editar/' . $it->id) ?>" title="Editar" class="btn btn-primary"><i class="far fa-edit"></i>
+                                            Editar</span></a>
                             <?php if ($it->ind_pago == '0' || is_null($it->ind_pago)) { ?>
-                            <a href="<?= base_url('pessoabanco/pagar/' . $it->id) ?>" title="Pagamento" class="btn btn-primary">
+                            <a href="<?= base_url('pessoabanco/pagar/' . $it->id) ?>" title="Pagamento" class="btn btn-success">
                             <i class="fas fa-hand-holding-usd"></i> Pagar</span></a>
                             <?php } else { ?>
                                 <a href="<?= base_url('pessoabanco/desfazerpagamento/' . $it->id) ?>" title="Desfazer pagamento" class="btn btn-danger">
