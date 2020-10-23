@@ -251,15 +251,21 @@ class Site extends MY_Controller
     {
         if ($this->input->post('aceite') != null) {
             $cpf = $this->session->userdata('cpf');
-            $dados = $this->session->userdata('pessoa_' . $cpf);
-            $this->pessoa_model->save(null, $dados);
 
-            $dados = $this->session->userdata('pessoabanco_' . $cpf);
-            $this->pessoabanco_model->save(null, $dados);
-            $cpf = $this->session->userdata('cpf');
-            $this->pessoa_model->updateAceiteByCpf($cpf, 1);
-            redirect('site/passofinal');
-            
+            if (!$this->pessoa_model->existeCpf($cpf)) {
+
+                $dados = $this->session->userdata('pessoa_' . $cpf);
+                $this->pessoa_model->save(null, $dados);
+
+                $dados = $this->session->userdata('pessoabanco_' . $cpf);
+                $this->pessoabanco_model->save(null, $dados);
+                $cpf = $this->session->userdata('cpf');
+                $this->pessoa_model->updateAceiteByCpf($cpf, 1);
+                redirect('site/passofinal');
+            } else {
+                $this->session->set_flashdata('msg-error', 'Já existe cadastro para o CPF informado');
+                redirect('site/passo3');
+            }
         } else {
             $this->session->set_flashdata('msg-error', 'Favor realizar aceite');
             redirect('site/passo3');
