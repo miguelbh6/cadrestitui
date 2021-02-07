@@ -25,8 +25,11 @@
 								class="sr-only">(current)</span></a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="<?=base_url('pessoabanco');?>">Pessoas com cadastros bancários</a></li>
+							<li class="nav-item"><a class="nav-link"
+							href="<?=base_url('planilha');?>">Planilha</a></li>
 					</ul>
 				</div>
+			
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link disabled" href="#"> <i
 							class="fas fa-user"></i> <?php    echo 'Usuario: ' . $this->session->userdata("username");?>

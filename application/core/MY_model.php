@@ -31,4 +31,12 @@ class MY_Model extends CI_Model {
     public function delete($id) {
         return $this->db->where('id', $id)->delete($this->tabela);
     }
+    
+    public function deleteBy($campo, $valor) {
+        return $this->db->where($campo, $valor)->delete($this->tabela);
+    }
+
+    public function getAllWithLimit() {
+        return $this->db->get($this->tabela, 10, 20)->result();
+    }
 }
