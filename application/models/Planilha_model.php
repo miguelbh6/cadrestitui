@@ -21,6 +21,11 @@ class Planilha_model extends MY_Model
             ->result();
     }
 
+    public function obterPorCpf($id)
+    {
+        return $this->db->where('cpf', $id)->get($this->tabela)->row();
+    }
+
     public function obterValorTotalRestituirPorCpf($id)
     {
         $this->db->select('p.cpf, sum(cast(p.percentual_restituir as decimal(9,2))) + sum(cast(p.pagto as decimal(9,2))) as total');
@@ -29,4 +34,15 @@ class Planilha_model extends MY_Model
         $query = $this->db->get()->row();
         return $query;
     }
+
+    
+    public function salvarPorCpf($cpf, $dados) {
+       
+        if ($cpf) {
+            $this->db->where('cpf',$cpf);
+            $this->db->update($this->tabela, $dados);
+        }else{
+            $this->db->insert($this->tabela, $dados);
+        }
+ }
 }
