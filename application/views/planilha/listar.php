@@ -17,7 +17,11 @@
         </div>
     </div>
 </div>
-        
+<div class="row">
+        <div class="col-md-12 mb-3">
+            <a href="<?php echo base_url('planilha/editar'); ?>" class="btn btn-success margin-button15"><i class="fas fa-plus-circle"></i> Novo</a>
+        </div>
+    </div>
 
         <?php if (!empty($planilhas)) { ?>
             <div class="row">

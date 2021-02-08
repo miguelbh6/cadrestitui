@@ -35,14 +35,23 @@ class Planilha_model extends MY_Model
         return $query;
     }
 
-    
-    public function salvarPorCpf($cpf, $dados) {
-       
+
+    public function atualizarPorCpf($cpf, $dados)
+    {
+
         if ($cpf) {
-            $this->db->where('cpf',$cpf);
+            $this->db->where('cpf', $cpf);
             $this->db->update($this->tabela, $dados);
-        }else{
+        } else {
             $this->db->insert($this->tabela, $dados);
         }
- }
+    }
+
+    public function inserir($dados)
+    {
+         $this->db->insert($this->tabela, $dados);
+
+
+         
+    }
 }

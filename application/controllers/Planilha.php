@@ -43,13 +43,25 @@ class Planilha extends MY_Controller
         if ($cpf != null) {
             $this->dados['planilha'] = $this->planilha_model->obterPorCpf($cpf);
             $this->_viewAdmin(self::BASE_URL . '/editar', $this->dados);
+        } else{
+            $this->_viewAdmin(self::BASE_URL . '/editar',  $this->dados); 
         }
     }
 
     public function cadastrar()
     {
         $dados = $this->input->post();
-        $this->planilha_model->salvarPorCpf($dados['cpf'], $dados);
+        
+        if ($dados['cpf_hidden'] != null) {
+            unset($dados['cpf_hidden']);
+
+            $this->planilha_model->atualizarPorCpf($dados['cpf'], $dados);
+        } else {
+            unset($dados['cpf_hidden']);
+            $this->planilha_model->inserir($dados);
+        }
+
+        //print_r($this->db->last_query());
         redirect(self::BASE_URL);
     }
 }

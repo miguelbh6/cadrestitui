@@ -18,7 +18,7 @@ class MY_Model extends CI_Model {
         return $this->db->where('id', $id)->get($this->tabela)->row();
     }
 
-     public function save($id, $dados) {
+    public function save($id, $dados) {
        
        	if ($id) {
        		$this->db->where('id',$id);
