@@ -49,9 +49,6 @@ class Planilha_model extends MY_Model
 
     public function inserir($dados)
     {
-         $this->db->insert($this->tabela, $dados);
-
-
-         
+        $this->db->insert($this->tabela, $dados);
     }
 }

@@ -10,6 +10,7 @@
         <form id="validation" action="<?= base_url(); ?>planilha/cadastrar" method="post" accept-charset="utf-8" role="form">
 
             <label>CPF ou CNPJ</label>
+            <input type="hidden" name="cpf" value="<?= (isset($planilha) ? $planilha->cpf : null) ?>">
             <div class="row">
                 <div class="col-12 mb-3">
                     <input type="text" name="cpf" class="form-control" required value="<?= (isset($planilha) ? $planilha->cpf : '') ?>">
@@ -59,7 +60,7 @@
 
             <div class="row">
                 <div class="col-2 mb-3">
-                    <input type="hidden" name="cpf_hidden" value="<?= (isset($planilha) ? $planilha->cpf : '') ?>">
+                    
                     <span class="input-group-btn"><button type="submit" class="btn btn-primary">
                             <i class="fas fa-save"></i> Salvar
                         </button></span>
