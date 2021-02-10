@@ -51,4 +51,18 @@ class Planilha_model extends MY_Model
     {
         $this->db->insert($this->tabela, $dados);
     }
+
+    public function obterPorCpfGrupoCota($cpf, $grupo, $cota)
+    {
+        $this->db->where('cpf', $cpf);
+        $this->db->where('grupo', $grupo);
+        $this->db->where('cota', $cota);
+
+        return $this->db->get($this->tabela)->row();
+    }
+
+    public function existePorCpfGrupoCota($cpf, $grupo, $cota)
+    {
+        return count($this->obterPorCpfGrupoCota($cpf, $grupo, $cota)) > 0;
+    }
 }

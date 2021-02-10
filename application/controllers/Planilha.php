@@ -52,7 +52,7 @@ class Planilha extends MY_Controller
     {
         $dados = $this->input->post();
 
-        if ($this->planilha_model->existeCpf($dados['cpf'])) {
+        if ($this->planilha_model->existePorCpfGrupoCota($dados['cpf'], $dados['grupo'], $dados['cota'])) {
             $this->planilha_model->atualizarPorCpf($dados['cpf'], $dados);
         } else {
             $this->planilha_model->inserir($dados);
