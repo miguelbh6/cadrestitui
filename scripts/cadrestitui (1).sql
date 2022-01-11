@@ -1,4 +1,7 @@
-﻿
+﻿-- drop table pessoabanco;
+-- drop table banco;
+-- drop table pessoa;
+-- drop table planilha;
 
 CREATE TABLE `banco` (
   `id` varchar(3) NOT NULL,
@@ -22,17 +25,7 @@ INSERT INTO `banco` (`id`, `nome`) VALUES
 ('453', 'Banco Rural S.A.'),
 ('633', 'Banco Rendimento S.A.'),
 ('652', 'Itaú Unibanco Holding S.A.'),
-('745', 'Banco Citibank S.A'),
-('25', 'Banco Alfa S.A.'),
-('318', 'Banco BMG S.A.'),
-('233', 'Banco Cifra S.A.'),
-('756', 'Banco Cooperativo do Brasil S.A. - BANCOOB'),
-('4', 'Banco do Nordeste do Brasil S.A.'),
-('77', 'Banco Inter S.A.'),
-('389', 'Banco Mercantil do Brasil S.A.'),
-('212', 'Banco Original S.A.'),
-('102', 'Banco XP S.A.'),
-('260', 'Nu Pagamentos S.A.');
+('745', 'Banco Citibank S.A');
 
 -- --------------------------------------------------------
 
@@ -8283,10 +8276,3 @@ COMMIT;
 ALTER TABLE `pessoa` ADD `numero` VARCHAR(5) NOT NULL AFTER `rua`;
 ALTER TABLE `pessoa` CHANGE `sobrenome` `sobrenome` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
 ALTER TABLE `pessoabanco` ADD `tpconta` VARCHAR(1) NOT NULL AFTER `vl_total`;
-ALTER TABLE `pessoa` ADD `aceite` INT(1) NOT NULL AFTER `uf`;
-ALTER TABLE `pessoa` CHANGE `aceite` `aceite` INT(1) NOT NULL DEFAULT '0';
-ALTER TABLE `pessoa` ADD `dt_inclusao` datetime	NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `aceite`;
-ALTER TABLE `pessoabanco` ADD `ind_pago` SMALLINT(1) NULL AFTER `tpconta`;
-ALTER TABLE `pessoabanco` ADD `dt_pago` DATETIME NULL AFTER `ind_pago`;
-ALTER TABLE `pessoabanco` ADD `dv` INT(1) NULL AFTER `dt_pago`;
-ALTER TABLE `pessoabanco` CHANGE `dt_pago` `dt_pago` VARCHAR(10) NULL DEFAULT NULL;
